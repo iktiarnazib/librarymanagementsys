@@ -1,0 +1,40 @@
+SQL CODE TO MANUALLY SET PASSWORD:
+
+INSERT INTO authentication_system (login_id, password, role)
+VALUES ('moinul', '$2y$12$n.YbOcrmzQPslD.56YRhfOIjJU4kAXR1Pw7mYMOAQS2a1JprsA0lC', 'reader');
+
+UPDATE readers SET login_id = 'moinul' WHERE reg_no = 'R0003';
+
+SQL HASHCODE GENERATOR
+
+php -r "echo password_hash('rafiq_se', PASSWORD_BCRYPT);"
+
+instructions: remove the end ‘%’
+
+SQL TO SET HASHED PASSWORD TO SPECIFIC USER
+
+INSERT INTO authentication_system (login_id, password, role)
+VALUES (‘Iktiar’, ‘$2y$12$6SAsmbelOVl5.F8nArfprewyDdm8Vs0phUud92JNlHgCHYXaATkfu', 'reader');
+
+Insert New Reader:
+INSERT INTO readers (user_id, reg_no, firstname, lastname, email, phone_no, address, login_id)
+VALUES ('U0001', 'R0001', 'Iktiar', '', 'iktiar@email.com', '', '', 'Iktiar');
+
+
+Reader:
+username: rafiq01
+password: staff123
+
+Librarian: 
+librarian01
+password: staff123
+
+
+INSERT INTO authentication_system (login_id, password, role)
+VALUES ('rafiq_see', '$2y$12$jd96B48Q8MIyOwxFMXCnKeqXtrAU1uoo.L5PWbco88wVLlBjeYQ96', 'staff');
+
+INSERT INTO staff (staff_id, name, login_id)
+VALUES ('ST065’, 'Rafiq Hossain', 'rafiq_see’);
+———————————————————
+php -r "echo password_hash('staffpassword', PASSWORD_BCRYPT);"
+$2y$12$jd96B48Q8MIyOwxFMXCnKeqXtrAU1uoo.L5PWbco88wVLlBjeYQ96
